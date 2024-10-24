@@ -6,8 +6,8 @@ import sys
 import copy
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score
 
-from data.utils import get_data
-from model.Conformer import Conformer, channel_selection, MultiHeadAttention, FeedForwardBlock, PatchEmbedding
+from utils import get_data
+from Conformer import Conformer, channel_selection, MultiHeadAttention, FeedForwardBlock, PatchEmbedding
 from logger import Logger
 
 import torch
