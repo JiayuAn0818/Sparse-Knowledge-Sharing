@@ -10,10 +10,6 @@ from torch.utils.data.sampler import WeightedRandomSampler
 from sklearn.model_selection import train_test_split
 from scipy.stats import zscore
 
-
-fs = 256
-patients = ["01", "03", "05", "08", "10", "13", "14", "15", "18", "20", "23"]
-
 def EA(x): # x(bs, channel, point)
     bs, channel, point = x.shape
     # 计算协方差矩阵
