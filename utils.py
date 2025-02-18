@@ -34,23 +34,6 @@ def torch_transform(TORCH_X, TORCH_Y):
     dataset = Data.TensorDataset(X_train, y_train)
     return dataset
 
-def get_data_nicu(person_id, args=None):
-    DataPath = '/mnt/data4/prepro/'
-    P_DataPath = os.path.join(DataPath, 'prepro_subject_{}'.format(person_id))
-    mat_data = scipy.io.loadmat(P_DataPath)
-    X = mat_data['X'].transpose(0, 2, 1)
-    y = mat_data['y'].reshape(-1)
-    print(X.shape)
-
-    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-    train_dataset = torch_transform(X_train, y_train)
-    test_dataset = torch_transform(X_val, y_val)
-    trainloader = DataLoader(train_dataset, batch_size=args.batchsize, shuffle=True, num_workers=4, drop_last=True)
-    testloader = DataLoader(test_dataset, batch_size=args.batchsize*4, shuffle=True, num_workers=4, drop_last=False)
-    return trainloader, testloader
-
-
-
 def get_data(person_id, args=None):
     if args.dataset == 'chb-mit':
         DataPath = '/mnt/data4/jyan/data/CHB_MIT/detection_processed/'
