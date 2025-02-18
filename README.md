@@ -1,6 +1,11 @@
 # Sparse Knowledge Sharing (SKS) for Privacy-Preserving Domain Incremental Seizure Detection
 
+## Training
+'''
+python train.py --ea
+'''
 
+## Citation
 If you find this code useful for your research, please cite our paper
 ```
 @Article{An2025sks,
